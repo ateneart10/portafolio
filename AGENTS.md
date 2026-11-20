@@ -12,11 +12,11 @@ El punto de retomar vive en la sección "Retomar aquí" de este archivo.
 
 ## Retomar aquí
 
-- Fase: publicación.
-- Hecho (2026-11-20): sitio estático responsive y accesible en `public/`; PDF de 4 páginas en `public/chris-torres-portafolio.pdf`; enlaces externos verificados (HTTP 200); repo Git local inicializado con commit en `main`.
-- Última decisión: Cloudflare Pages con Git integration, build output `public`, sin build command. `wrangler.jsonc` queda para la alternativa Workers.
-- Pendiente de aprobación / acción del usuario:
-  1. Autenticar `gh` con la cuenta `ateneart10` (hoy `gh` está logueado como otra cuenta) para crear el repo y hacer push.
-  2. Conectar el repo en Cloudflare dashboard (requiere login y autorizar la GitHub App; lo hace el usuario).
-- Decisiones abiertas: nombre del repo (propuesto `portafolio`), nombre del proyecto Cloudflare (propuesto `chris-torres`, URL `chris-torres.pages.dev`), dominio propio opcional.
-- Siguiente paso exacto: con la URL pública final, regenerar el PDF con `-SiteUrl <url>`, poner `og:image` y `canonical` absolutos en `public/index.html`, commit y push.
+- Fase: publicado y en mantenimiento.
+- Hecho (2026-11-20): sitio estático responsive y accesible en `public/`; PDF de 4 páginas en `public/chris-torres-portafolio.pdf` (ya apunta a la URL final); enlaces externos verificados (HTTP 200).
+- Repo: https://github.com/ateneart10/portafolio (público, rama `main`). En esta máquina `gh` tiene dos cuentas; la activa es `ateneart10`.
+- Producción: https://chris-torres.pages.dev (Cloudflare Pages, proyecto `chris-torres`, cuenta Cloudflare de ateneart10, build output `public`, sin build command). Cada push a `main` despliega solo.
+- Última decisión: `canonical`, `og:url` y `og:image` absolutos hacia `chris-torres.pages.dev`.
+- Pendiente de aprobación: ninguno.
+- Decisiones abiertas: dominio propio opcional (si se agrega, actualizar `canonical`/`og:*` y regenerar el PDF con `-SiteUrl`).
+- Siguiente paso exacto: ninguno obligatorio; para cambios de contenido, editar `public/index.html` y `pdf/portafolio.html`, regenerar PDF, commit y push.
