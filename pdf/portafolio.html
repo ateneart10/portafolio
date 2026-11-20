@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Chris Torres, portafolio de redacción</title>
+<meta name="author" content="Chris Torres">
+<meta name="description" content="Portafolio de redacción editorial, contenidos web y documentación digital.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&amp;display=block">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --bg: #FAF9F6; --ink: #252525; --body: #444444; --muted: #666666;
+    --accent: #71364B; --accent-dark: #5A2A3D; --accent-soft: #EADCE1;
+    --sand: #F1ECE4; --line: #D8D4CC; --line-strong: #C9C3B8;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', 'Segoe UI', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  h1, h2, h3, h4, p, ul { margin: 0; }
+  a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 2px; }
+  em { font-style: italic; }
+
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 18mm 20mm;
+    background: var(--bg);
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .running {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 4mm;
+    margin-bottom: 9mm;
+    border-bottom: 1px solid var(--line);
+    font-size: 8pt;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .running strong { font-family: var(--serif); font-size: 12pt; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 600; }
+  .folio {
+    position: absolute;
+    left: 18mm; right: 18mm; bottom: 10mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 3mm;
+  }
+
+  .eyebrow { font-size: 7.5pt; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3mm; }
+  .h2 { font-family: var(--serif); font-weight: 400; font-size: 28pt; line-height: 1.08; letter-spacing: -0.015em; margin-bottom: 7mm; }
+  .h2 em { color: var(--accent); }
+  .label { font-size: 8pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3mm; }
+
+  /* Página 1 */
+  .cover { display: grid; grid-template-columns: 1fr 62mm; gap: 10mm; align-items: center; margin-bottom: 9mm; }
+  .cover h1 { font-family: var(--serif); font-weight: 400; font-size: 36pt; line-height: 1.03; letter-spacing: -0.02em; }
+  .cover h1 em { color: var(--accent); }
+  .cover .lead { margin-top: 5mm; font-size: 12pt; line-height: 1.45; }
+  .photo { position: relative; width: 62mm; height: 62mm; }
+  .photo::before { content: ""; position: absolute; top: 5%; right: -6%; bottom: -6%; left: 12%; background: var(--accent-soft); border-radius: 58% 42% 46% 54% / 46% 56% 44% 54%; }
+  .photo::after { content: ""; position: absolute; left: -7%; bottom: 8%; width: 24%; height: 24%; background: var(--accent); border-radius: 52% 48% 44% 56% / 50% 54% 46% 50%; }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 48% 52% 50% 50% / 54% 46% 54% 46%; z-index: 1; }
+
+  .intro { font-family: var(--serif); font-size: 13pt; line-height: 1.5; margin-bottom: 4mm; }
+  .p { color: var(--body); margin-bottom: 3mm; }
+
+  .contact-card {
+    margin-top: 7mm;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4mm 8mm;
+    padding: 6mm 7mm;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 8mm 8mm 8mm 2.5mm;
+  }
+  .contact-card .k { display: block; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: #EBC8D6; margin-bottom: .8mm; }
+  .contact-card .v { font-size: 10.5pt; }
+  .contact-card a { color: var(--bg); text-decoration-color: #EBC8D6; }
+
+  .areas { margin-top: 7mm; display: flex; flex-wrap: wrap; gap: 2mm; }
+  .areas li { list-style: none; font-size: 8.5pt; padding: 1.2mm 3.5mm; border: 1px solid var(--line-strong); border-radius: 999px; }
+  .areas { padding: 0; }
+
+  /* Trabajos */
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .work { display: flex; flex-direction: column; gap: 2.4mm; padding: 6mm; border-radius: 7mm 7mm 7mm 2.5mm; }
+  .work--outline { border: 1px solid var(--line); background: #fff; }
+  .work--sand { background: var(--sand); }
+  .work__top { display: flex; align-items: center; gap: 3mm; }
+  .work__num { font-family: var(--serif); font-style: italic; font-size: 20pt; line-height: 1; color: var(--accent); }
+  .tag { font-size: 7.5pt; font-weight: 500; padding: .8mm 3mm; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); }
+  .work--sand .tag { background: var(--bg); }
+  .work__meta { font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .work__title { font-family: var(--serif); font-weight: 500; font-size: 13pt; line-height: 1.25; }
+  .work__desc { color: var(--body); font-size: 9.5pt; }
+  .work__link { margin-top: auto; padding-top: 1.5mm; font-size: 8.5pt; font-weight: 500; word-break: break-all; }
+  .group-label { margin: 7mm 0 3mm; }
+  .group-label:first-of-type { margin-top: 0; }
+
+  .archive { margin-top: 7mm; }
+  .archive h3 { font-family: var(--serif); font-weight: 500; font-size: 13pt; margin-bottom: 2mm; }
+  .archive ul { list-style: none; padding: 0; border-bottom: 1px solid var(--line); }
+  .archive li { display: grid; grid-template-columns: 1fr auto; gap: 1mm 6mm; padding: 2.4mm 0; border-top: 1px solid var(--line); }
+  .archive li span { color: var(--muted); font-size: 8.5pt; }
+  .archive .url { grid-column: 1 / -1; font-size: 8pt; color: var(--muted); word-break: break-all; }
+  .note { margin-top: 3mm; font-size: 8.5pt; font-style: italic; color: var(--muted); }
+
+  /* Servicios */
+  .services { list-style: none; padding: 0; border-bottom: 1px solid var(--line-strong); }
+  .service { display: grid; grid-template-columns: 12mm 1fr 1.15fr; gap: 6mm; padding: 5mm 0; border-top: 1px solid var(--line-strong); }
+  .service__num { font-family: var(--serif); font-style: italic; font-size: 20pt; line-height: 1.1; color: var(--accent); }
+  .service h3 { font-family: var(--serif); font-weight: 500; font-size: 13pt; line-height: 1.25; }
+  .service p { color: var(--body); }
+  .also { margin-top: 6mm; display: grid; grid-template-columns: 30mm 1fr; gap: 6mm; align-items: baseline; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+  .rule { list-style: none; padding: 0; border-bottom: 1px solid var(--line); margin-bottom: 7mm; }
+  .rule li { padding: 2.6mm 0; border-top: 1px solid var(--line); font-size: 9.5pt; }
+  .rule strong.org { display: block; font-family: var(--serif); font-size: 11.5pt; font-weight: 600; }
+  .rule li span { color: var(--body); }
+  .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 2mm; }
+  .chips li { font-size: 8.5pt; padding: 1.2mm 3.5mm; border: 1px solid var(--line-strong); border-radius: 999px; }
+
+  .closing {
+    position: relative;
+    overflow: hidden;
+    margin-top: 8mm;
+    padding: 9mm 10mm;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 10mm;
+  }
+  .closing::before { content: ""; position: absolute; right: -20mm; top: -26mm; width: 80mm; height: 80mm; background: var(--accent); opacity: .55; border-radius: 58% 42% 46% 54% / 46% 56% 44% 54%; }
+  .closing > * { position: relative; }
+  .closing h2 { font-family: var(--serif); font-weight: 400; font-size: 24pt; line-height: 1.08; }
+  .closing h2 em { color: #EBC8D6; }
+  .closing p { margin-top: 3mm; color: #E4E0D8; max-width: 120mm; }
+  .closing .links { margin-top: 5mm; display: flex; flex-wrap: wrap; gap: 3mm 8mm; font-size: 10.5pt; }
+  .closing a { color: var(--bg); text-decoration-color: #EBC8D6; }
+</style>
+</head>
+<body>
+
+<!-- 1. Presentación -->
+<section class="page">
+  <div class="running"><strong>Chris Torres</strong><span>Portafolio de redacción · 2026</span></div>
+
+  <div class="cover">
+    <div>
+      <p class="eyebrow">Lima, Perú · Trabajo remoto</p>
+      <h1>Escribo para que cada <em>idea</em> se entienda y tenga sentido</h1>
+      <p class="lead">Redacción editorial, contenidos web y documentación digital.</p>
+    </div>
+    <div class="photo"><img src="../public/assets/img/chris-torres.jpg" alt="Fotografía de Chris Torres"></div>
+  </div>
+
+  <p class="eyebrow">Presentación</p>
+  <p class="intro">Soy Chris Torres. Trabajo con palabras, ideas e información: investigo, entrevisto, redacto y organizo contenidos para que resulten claros y útiles.</p>
+  <p class="p">Mi experiencia incluye artículos culturales publicados en Cultura Colectiva, escritura de opinión en el blog La Luz del Ciego y producción editorial para la Revista Conecta Salud, donde realicé entrevistas a profesionales de salud, cuestionarios, redacción final y contenidos para web y redes sociales.</p>
+  <p class="p">Me interesa colaborar con medios, negocios y equipos que necesiten contenidos bien escritos, documentación ordenada y comunicación con criterio editorial. Combino escritura y revisión humana con herramientas digitales e inteligencia artificial cuando aportan valor al proceso, sin sustituir la responsabilidad editorial.</p>
+
+  <ul class="areas" aria-label="Áreas de trabajo">
+    <li>Redacción editorial</li>
+    <li>Contenidos web y SEO</li>
+    <li>Corrección y revisión de estilo</li>
+    <li>Transcripción</li>
+    <li>Documentación digital</li>
+  </ul>
+
+  <div class="contact-card">
+    <div><span class="k">Correo</span><span class="v"><a href="mailto:ateneart10@gmail.com">ateneart10@gmail.com</a></span></div>
+    <div><span class="k">Portafolio web</span><span class="v"><a href="{{SITE_URL}}">{{SITE_URL_LABEL}}</a></span></div>
+    <div><span class="k">Ubicación</span><span class="v">Lima, Perú</span></div>
+    <div><span class="k">Disponibilidad</span><span class="v">Remoto · freelance o medio tiempo</span></div>
+  </div>
+
+  <div class="folio"><span>Chris Torres · Portafolio de redacción</span><span>1 / 4</span></div>
+</section>
+
+<!-- 2. Trabajos destacados -->
+<section class="page">
+  <div class="running"><strong>Chris Torres</strong><span>Trabajos publicados</span></div>
+  <p class="eyebrow">01 · Trabajos publicados</p>
+  <h2 class="h2">Publicaciones <em>destacadas</em></h2>
+  <p class="p" style="margin-bottom:7mm">Artículos culturales en Cultura Colectiva y ensayos de opinión en un blog personal. Cada pieza enlaza al original.</p>
+
+  <h3 class="label group-label">En Cultura Colectiva</h3>
+  <div class="works">
+    <article class="work work--outline">
+      <div class="work__top"><span class="work__num">01</span><span class="tag">Análisis musical</span></div>
+      <p class="work__meta">Cultura Colectiva · 22 de enero de 2023</p>
+      <h4 class="work__title">El disco con el que Cerati nos mostró que estar enamorado es sentirse un hombre que lo tiene todo</h4>
+      <p class="work__desc">Una lectura de <em>Amor amarillo</em> desde la música, la biografía y las emociones que atraviesan el disco.</p>
+      <a class="work__link" href="https://culturacolectiva.com/entretenimiento/musica/amor-amarillo-disco-de-gustavo-cerati/">culturacolectiva.com/entretenimiento/musica/amor-amarillo-disco-de-gustavo-cerati/</a>
+    </article>
+    <article class="work work--outline" style="border-radius:7mm 7mm 2.5mm 7mm">
+      <div class="work__top"><span class="work__num">02</span><span class="tag">Periodismo musical</span></div>
+      <p class="work__meta">Cultura Colectiva · 5 de marzo de 2018</p>
+      <h4 class="work__title">Norah Jones, la artista que demuestra que el country no es música aburrida</h4>
+      <p class="work__desc">Un recorrido por las colaboraciones de Norah Jones y los géneros musicales que conviven en su obra.</p>
+      <a class="work__link" href="https://culturacolectiva.com/entretenimiento/musica/norah-jones-album-featuring-el-country-no-es-musica-aburrida/">culturacolectiva.com/entretenimiento/musica/norah-jones-album-featuring-el-country-no-es-musica-aburrida/</a>
+    </article>
+  </div>
+
+  <h3 class="label group-label">En el blog La Luz del Ciego · ensayos de opinión, 2017</h3>
+  <div class="works">
+    <article class="work work--sand" style="border-radius:2.5mm 7mm 7mm 7mm">
+      <div class="work__top"><span class="work__num">03</span><span class="tag">Medios y sociedad</span></div>
+      <p class="work__meta">La Luz del Ciego · 28 de julio de 2017</p>
+      <h4 class="work__title">La manipulación de los medios de comunicación</h4>
+      <p class="work__desc">Una reflexión sobre la influencia de los medios en la opinión pública y la responsabilidad de los ciudadanos frente a la información.</p>
+      <a class="work__link" href="https://laluzdelciego.wordpress.com/2017/07/28/la-manipulacion-de-los-medios-de-comunicacion/">laluzdelciego.wordpress.com/2017/07/28/la-manipulacion-de-los-medios-de-comunicacion/</a>
+    </article>
+    <article class="work work--sand" style="border-radius:7mm 2.5mm 7mm 7mm">
+      <div class="work__top"><span class="work__num">04</span><span class="tag">Pensamiento político</span></div>
+      <p class="work__meta">La Luz del Ciego · 4 de noviembre de 2017</p>
+      <h4 class="work__title">La política del futuro</h4>
+      <p class="work__desc">Una reflexión sobre la modernización de la política, sus límites humanos y las tensiones entre eficiencia y representación.</p>
+      <a class="work__link" href="https://laluzdelciego.wordpress.com/2017/11/04/la-politica-del-futuro/">laluzdelciego.wordpress.com/2017/11/04/la-politica-del-futuro/</a>
+    </article>
+  </div>
+
+  <div class="folio"><span>Chris Torres · Portafolio de redacción</span><span>2 / 4</span></div>
+</section>
+
+<!-- 3. Archivo y servicios -->
+<section class="page">
+  <div class="running"><strong>Chris Torres</strong><span>Archivo y servicios</span></div>
+
+  <div class="archive" style="margin-top:0">
+    <h3>Más del archivo</h3>
+    <ul>
+      <li><a href="https://laluzdelciego.wordpress.com/2017/07/28/la-democracia-ideal/">¿La democracia ideal?</a><span>2017</span><span class="url">laluzdelciego.wordpress.com/2017/07/28/la-democracia-ideal/</span></li>
+      <li><a href="https://laluzdelciego.wordpress.com/2017/09/13/la-verdadera-motivacion-de-la-guerra/">La verdadera motivación de la guerra</a><span>2017</span><span class="url">laluzdelciego.wordpress.com/2017/09/13/la-verdadera-motivacion-de-la-guerra/</span></li>
+      <li><a href="https://laluzdelciego.wordpress.com/2017/08/11/todos-podemos-ser-el-rey-filosofo/">Todos podemos ser el rey filósofo</a><span>2017</span><span class="url">laluzdelciego.wordpress.com/2017/08/11/todos-podemos-ser-el-rey-filosofo/</span></li>
+    </ul>
+    <p class="note">Algunas publicaciones antiguas aparecen firmadas como “Crhis Torres”.</p>
+  </div>
+
+  <div style="margin-top:12mm">
+    <p class="eyebrow">02 · Servicios</p>
+    <h2 class="h2">Qué <em>entrego</em></h2>
+    <ul class="services">
+      <li class="service"><span class="service__num">1</span><h3>Redacción de artículos y contenido web</h3><p>Textos investigados y bien estructurados, escritos para su lector y con criterios SEO de redacción web.</p></li>
+      <li class="service"><span class="service__num">2</span><h3>Redacción y edición de documentos, informes y textos profesionales</h3><p>Documentos ordenados, coherentes y listos para circular.</p></li>
+      <li class="service"><span class="service__num">3</span><h3>Corrección ortográfica y revisión de estilo</h3><p>Ortografía, gramática y claridad, cuidando la voz de cada autor.</p></li>
+      <li class="service"><span class="service__num">4</span><h3>Transcripción y revisión de audio y video a texto</h3><p>Del audio o el video a un texto revisado y legible.</p></li>
+    </ul>
+    <div class="also">
+      <h3 class="label" style="margin:0">También</h3>
+      <p>Digitación y formateo de documentos. Organización y carga de información en hojas de cálculo.</p>
+    </div>
+  </div>
+
+  <div class="folio"><span>Chris Torres · Portafolio de redacción</span><span>3 / 4</span></div>
+</section>
+
+<!-- 4. Trayectoria, formación y contacto -->
+<section class="page">
+  <div class="running"><strong>Chris Torres</strong><span>Trayectoria y contacto</span></div>
+  <p class="eyebrow">03 · Sobre mí</p>
+  <h2 class="h2">Una escritora que <em>investiga</em> primero</h2>
+
+  <div class="two-col">
+    <div>
+      <h3 class="label">Trayectoria</h3>
+      <ul class="rule">
+        <li><strong class="org">Revista Conecta Salud</strong><span>Entrevistas a profesionales de salud, cuestionarios, redacción final y contenidos para web y redes sociales.</span></li>
+        <li><strong class="org">Cultura Colectiva</strong><span>Artículos de divulgación cultural.</span></li>
+        <li><strong class="org">La Luz del Ciego</strong><span>Cofundación del blog y redacción de artículos de opinión.</span></li>
+        <li><strong class="org">PQSolutions Perú</strong><span>Cofundación, decisiones comerciales y desarrollo visual de soluciones tecnológicas.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="label">Formación</h3>
+      <ul class="rule">
+        <li><strong>Ciencia Política</strong>, Universidad Nacional Federico Villarreal (UNFV). Estudios universitarios concluidos.</li>
+        <li><strong>Comunicación y Diseño</strong>, IDC. Estudios parciales.</li>
+        <li>Redacción orientada a SEO y escritura para la web, Edutin Academy.</li>
+        <li>Formación en la academia oficial de Claude.</li>
+        <li>Inglés intermedio, B1/B2.</li>
+      </ul>
+      <h3 class="label">Herramientas</h3>
+      <ul class="chips">
+        <li>Word</li><li>Excel</li><li>PowerPoint</li><li>Google Docs, Sheets y Drive</li><li>Canva</li><li>ChatGPT</li><li>Claude</li><li>Edición y conversión de PDF</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="closing">
+    <p class="eyebrow" style="color:#EBC8D6">04 · Contacto</p>
+    <h2>Conversemos sobre tu próximo <em>texto</em></h2>
+    <p>Busco colaboraciones remotas, freelance o de medio tiempo en redacción editorial, contenidos web, corrección y transcripción.</p>
+    <div class="links">
+      <a href="mailto:ateneart10@gmail.com">ateneart10@gmail.com</a>
+      <a href="{{SITE_URL}}">{{SITE_URL_LABEL}}</a>
+      <span>Lima, Perú · Trabajo remoto</span>
+    </div>
+  </div>
+
+  <div class="folio"><span>Chris Torres · Portafolio de redacción</span><span>4 / 4</span></div>
+</section>
+
+</body>
+</html>

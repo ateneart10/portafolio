@@ -1,0 +1,7 @@
+pdf/_render.html
+node_modules/
+.wrangler/
+.claude/settings.local.json
+.DS_Store
+Thumbs.db
+pdf/*.pdf

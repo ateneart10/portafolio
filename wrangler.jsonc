@@ -1,0 +1,10 @@
+// Solo se usa si el despliegue se hace con Cloudflare Workers (Workers Builds).
+// Cloudflare Pages ignora este archivo porque no define pages_build_output_dir.
+{
+  "name": "chris-torres",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}
